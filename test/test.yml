@@ -21,3 +21,4 @@ jobs:
       - reviewdog/review:
           linters: "golang.org/x/lint/golint github.com/kisielk/errcheck"
           reporter: local
+          checkout: false

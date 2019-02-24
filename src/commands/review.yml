@@ -9,9 +9,17 @@ parameters:
     description: "reporter services to output results"
     type: string
     default: "github-pr-review"
+  checkout:
+    description: >
+      Boolean for whether or not to checkout as a first step. Default is true.
+    type: boolean
+    default: true
 
 steps:
-  - checkout
+  - when:
+      condition: << parameters.checkout >>
+      steps:
+        - checkout
   - run:
       name: Fetch linters
       command: |
