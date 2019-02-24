@@ -18,6 +18,7 @@ jobs:
             mv test/go.mod go.mod
             mv test/go.sum go.sum
             mv test/main.go main.go
+            mv test/reviewdog.yml .reviewdog.yml
       - reviewdog/review:
           linters: "golang.org/x/lint/golint github.com/kisielk/errcheck"
           reporter: local -diff="git diff master"
