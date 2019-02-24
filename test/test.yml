@@ -20,5 +20,5 @@ jobs:
             mv test/main.go main.go
       - reviewdog/review:
           linters: "golang.org/x/lint/golint github.com/kisielk/errcheck"
-          reporter: local
+          reporter: local -diff="git diff master"
           checkout: false
