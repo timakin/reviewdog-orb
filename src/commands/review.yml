@@ -9,7 +9,7 @@ parameters:
     description: "reporter services to output results"
     type: string
     default: "github-pr-review"
-  
+
 steps:
   - checkout
   - run:
