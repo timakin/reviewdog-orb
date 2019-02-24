@@ -1,0 +1,20 @@
+description: "Usage of timakin/reviewdog orb"
+
+usage:
+  version: 2.1
+
+  executors:
+    golang:
+      docker:
+        - image: circleci/golang:1.11.1-stretch
+
+  orbs:
+    reviewdog: timakin/reviewdog@volatile
+
+  workflows:
+    build:
+      jobs:
+        - reviewdog/review:
+            executor: golang
+            linters: "golang.org/x/lint/golint github.com/kisielk/errcheck"
+            reporter: local

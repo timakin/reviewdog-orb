@@ -1,0 +1,21 @@
+description: >
+  Run reviewdog command with multiple linters
+
+executor: <<parameters.executor>>
+
+parameters:
+  executor:
+    description: executor to use for this job
+    type: executor
+    default: default
+  linters:
+    description: "fetch linter tools go get URL."
+    type: string
+    default: "golang.org/x/lint/golint"
+  reporter:
+    description: "reporter services to output results"
+    type: string
+    default: "github-pr-review"
+
+steps:
+  - review

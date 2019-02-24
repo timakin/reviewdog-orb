@@ -1,0 +1,28 @@
+description: "Runs the reviewdog"
+
+parameters:
+  linters:
+    description: "fetch linter tools go get URL."
+    type: string
+    default: "golang.org/x/lint/golint"
+  reporter:
+    description: "reporter services to output results"
+    type: string
+    default: "github-pr-review"
+  
+steps:
+  - checkout
+  - run:
+      name: Fetch linters
+      command: |
+        if [[ -n "<< parameters.linters >>" ]]; then
+          go get -u -v << parameters.linters >>
+        fi
+  - run:
+      name: Install reviewdog
+      command: |
+        go get -u github.com/haya14busa/reviewdog/cmd/reviewdog
+  - run:
+      name: Run reviewdog
+      command: |
+        reviewdog -reporter=<< parameters.reporter >>

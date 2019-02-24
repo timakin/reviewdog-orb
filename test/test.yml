@@ -1,0 +1,23 @@
+version: "2.1"
+
+executors:
+  default:
+    docker:
+      - image: circleci/golang:1.11
+    environment:
+      - GO111MODULE: "on"
+
+jobs:
+  build:
+    executor: default
+    steps:
+      - checkout
+      - run:
+          name: Create Sample Go Project
+          command: |
+            mv test/go.mod go.mod
+            mv test/go.sum go.sum
+            mv test/main.go main.go
+      - reviewdog/review:
+          linters: "golang.org/x/lint/golint github.com/kisielk/errcheck"
+          reporter: local
