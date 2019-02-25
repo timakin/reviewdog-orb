@@ -19,6 +19,7 @@ jobs:
             mv test/go.sum go.sum
             mv test/main.go main.go
             mv test/reviewdog.yml .reviewdog.yml
+            mv test/git .git
       - reviewdog/review:
           linters: "golang.org/x/lint/golint"
           reporter: local -diff="git diff master"
