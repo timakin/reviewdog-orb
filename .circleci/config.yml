@@ -53,6 +53,10 @@ workflows:
           name: pack-dev
           filters: *integration-dev_filters
 
+      - orb-tools/pack:
+          name: pack-master
+          filters: *integration-master_filters
+
       - orb-tools/test-in-builds:
           attach-workspace: true
           orb-name: reviewdog
@@ -64,10 +68,6 @@ workflows:
           filters: *integration-dev_filters
           requires:
             - pack-dev
-
-      - orb-tools/pack:
-          name: pack-master
-          filters: *integration-master_filters
 
       - orb-tools/test-in-builds:
           attach-workspace: true
