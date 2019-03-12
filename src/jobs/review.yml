@@ -23,4 +23,7 @@ parameters:
     default: true
 
 steps:
-  - review
+  - review:
+      checkout: << parameters.checkout >>
+      linters: << parameters.linters >>
+      reporter: << parameters.reporter >>
