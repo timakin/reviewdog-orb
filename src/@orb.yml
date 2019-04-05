@@ -2,4 +2,4 @@ version: 2.1
 
 description: |
   CircleCI orb for Reviewdog.
-  https://github.com/haya14busa/reviewdog
+  https://github.com/reviewdog/reviewdog

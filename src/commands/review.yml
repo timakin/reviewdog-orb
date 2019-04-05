@@ -24,12 +24,12 @@ steps:
       name: Fetch linters
       command: |
         if [[ -n "<< parameters.linters >>" ]]; then
-          go get -u -v << parameters.linters >>
+          GO111MODULE=off go get -u -v << parameters.linters >>
         fi
   - run:
       name: Install reviewdog
       command: |
-        go get -u github.com/haya14busa/reviewdog/cmd/reviewdog
+        GO111MODULE=off go get -u github.com/reviewdog/reviewdog/cmd/reviewdog
   - run:
       name: Run reviewdog
       command: |
