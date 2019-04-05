@@ -3,7 +3,7 @@ version: "2.1"
 executors:
   default:
     docker:
-      - image: circleci/golang:1.11.1-stretch
+      - image: circleci/golang:1.12
     environment:
       - GO111MODULE: "on"
 
