@@ -29,7 +29,7 @@ steps:
   - run:
       name: Install reviewdog
       command: |
-        go get -u github.com/reviewdog/reviewdog/cmd/reviewdog
+        GO111MODULE=off go get -u github.com/reviewdog/reviewdog/cmd/reviewdog
   - run:
       name: Run reviewdog
       command: |
